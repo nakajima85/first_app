@@ -1,0 +1,28 @@
+<h1>トップページ</h1>
+
+<%#= @post.content %>  <%# コメントアウト %>
+<%#= @post.created_at %>
+<%# 単一レコード情報.カラム名 で表示可能%>
+
+<%# @posts.each do |post| %>  <%# eachメソッドを利用 %>
+  <%#= post.content %>  <%# @postを@postsに変更 %>
+  <%#= post.created_at %>
+<%# end %> <%# =を使うとブラウザ表示 =なしは、処理のみ%>
+
+<%= link_to '新規投稿', '/posts/new' %> <%# 新規投稿ページへのリンク%>
+
+<%#= link_to '新規投稿', '/posts/new', method: :GET %> <%#↑と同義%>
+
+<%#link_toメソッドでパスを指定→指定なしはデフォルトでGETメソッドが指定される%>
+
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <div class="post-date">
+      投稿日時:<%= post.created_at %>
+    </div>
+    <div class="post-content">
+      <%= post.content %>
+    </div>
+  </div>      
+<% end %>
